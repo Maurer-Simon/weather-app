@@ -1,7 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Weather Information</h1>
+    <form class="mb-4" method="get" action="">
+        <div class="input-group">
+            <input type="text" class="form-control" name="location" placeholder="Enter location" value="{{ location }}">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Get Weather</button>
+            </div>
+        </div>
+    </form>
 
-<h1>Hello World!</h1>
-
+    {% if weather_data %}
+        {% if weather_data == "Error..." %}
+            <div class="alert alert-danger" role="alert">
+                There was an error, please try again...
+            </div>
+        {% else %}
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Weather Information for {{ weather_data.location_name }}</h2>
+                    <p class="card-text">Location: {{ weather_data.location_name }}</p>
+                    <p class="card-text">Country: {{ weather_data.country }}</p>
+                    <p class="card-text">Time Zone: {{ weather_data.time_zone }}</p>
+                    <p class="card-text">Local Time: {{ weather_data.local_time }}</p>
+                    <p class="card-text">Condition: {{ weather_data.condition_text }}</p>
+                    <p class="card-text">Temperature (Celsius): {{ weather_data.temp_c }}°C</p>
+                    <p class="card-text">Feels Like (Celsius): {{ weather_data.feels_like_c }}°C</p>
+                </div>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            No weather data available.
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

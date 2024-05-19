@@ -1,18 +1,15 @@
-
-
 {% extends 'base.html' %}
 
+{% block title %}About Me{% endblock %}
+
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About me!</title>
-</head>
-<body>
-    <h1>About me!</h1>
-</body>
-</html>
-
+<div class="jumbotron mt-4">
+    <h1 class="display-4">About Me!</h1>
+    <p class="lead">This is one of my Django Python projects where I connect with a weather API to make weather requests for a given location.</p>
+    <hr class="my-4">
+    <p>In this project, I utilize the WeatherAPI to fetch current weather information based on a specified location. The data includes temperature, weather conditions, and more, which are displayed dynamically on the website.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/" role="button">Go to Home</a>
+    </p>
+</div>
 {% endblock %}
